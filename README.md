@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# HodlUP Front End 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+HodlUP is a React-based web application that allows users to set custom notifications for cryptocurrency price or percentage changes. Users can select the type of change they want to monitor, specify a threshold, and choose their preferred notification method. The app offers flexibility in notification preferences to help users stay informed without constantly monitoring markets.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Customizable Notifications**: Users can select between price or percentage changes as the trigger for notifications.
+- **Threshold Setting**: Users can set a specific threshold value for alerts.
+- **Flexible Notification Methods**: Choose from various notification methods, including Email, SMS, Phone Call, Slack, Discord, and WhatsApp.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this application locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/projects-in-progrmaming-hodlup/Activity_8.git
+   cd Activity_8
 
-### `npm test`
+2. **Install dependencies**:
+    ```bash
+    npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+3. **Run the application**:
+   ```bash
+   npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **If it didn't start, open your browser and go to http://localhost:3000.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## How to Use
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.	Set Notification:
+-  **Notification Type**: Select either “Price” or “Percentage” change as the notification trigger.
+-  **Set Threshold**: Enter your desired threshold value (numeric input).
+-  **Notification Method**: Choose a preferred notification method from a dropdown (Email, SMS, Phone Call, Slack, Discord, or WhatsApp).
+2.  Confirmation:
+- 	After submitting your alert settings, you’ll see a confirmation screen with options to modify or finalize your settings.
+- **Modify Settings** : If you want to make changes, click “Modify Setting” to return to the form with your previous inputs saved.
+- **Finalize Setting**: When satisfied with your setup, click “Done” to finalize your alert settings and wait to receive notifications of your preferred method. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Component Documentation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **NotificationForm.js**: 
+   - Purpose: Allows users to set their notification preferences.
+   - Props:
+     - `onSubmit`: Function to call when the form is submitted.
+     - `initialData`: Initial values to populate the form (useful for modifying settings).
+   - State:
+     - `notificationType`: Tracks whether the alert is based on price or percentage. The state defaults to 'Price' and is updated with the user input (using initialData.notificationType if modifying settings).  
+     - `thresholdValue`: Holds the user-defined threshold for the alert. The state defaults to an empty string ('') and is updated with the user input (using initialData.thresholdValue if modifying settings)
+     - `notificationMethod`: Stores the preferred method of notification (e.g., Email, SMS). The state defaults to 'Email' and is updated with the user input (using initialData.notificationMethod if modifying settings)
 
-## Learn More
+2. **Dropdown.js**: 
+   - Purpose: Renders a dropdown selection for user input.
+   - Props:
+     - `label`: Label for the dropdown.
+     - `options`: Array of options for selection.
+     - `onSelect`: Function to call with the selected option.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Button.js**: 
+   - Purpose: A reusable button component for submitting forms or triggering actions.
+   - Props:
+     - `text`: Text to display on the button.
+     - `onClick`: Function to call when the button is clicked.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. **Confirmation.js**: 
+   - Purpose: Displays the confirmation page with options for modifying or finalizing settings.
+   - Props:
+     - `alertData`: Data about the alert settings to be confirmed.
+     - `onModify`: Function to call when the user wants to modify settings.
