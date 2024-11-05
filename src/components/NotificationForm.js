@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import Button from './Button';
 import Dropdown from './Dropdown';
 
-const NotificationForm = ({ onSubmit }) => {
-  const [notificationType, setNotificationType] = useState('');
-  const [thresholdValue, setThresholdValue] = useState('');
-  const [notificationMethod, setNotificationMethod] = useState('');
+const NotificationForm = ({ onSubmit, initialData }) => {
+  const [notificationType, setNotificationType] = useState(initialData.notificationType || 'Price');
+  const [thresholdValue, setThresholdValue] = useState(initialData.thresholdValue || '');
+  const [notificationMethod, setNotificationMethod] = useState(initialData.notificationMethod || 'Email');
 
+  // Function to handle form submission
   const handleSubmit = () => {
     const alertData = {
       notificationType,
@@ -13,6 +15,7 @@ const NotificationForm = ({ onSubmit }) => {
       notificationMethod,
     };
     onSubmit(alertData);
+    console.log(alertData);
   };
 
   return (
@@ -24,6 +27,7 @@ const NotificationForm = ({ onSubmit }) => {
         label="Get notified by change in:"
         options={['Price', 'Percentage']}
         onSelect={setNotificationType}
+        selectedValue={notificationType} // Pass current value to dropdown 
       />
 
       {/* Input for Threshold */}
@@ -33,6 +37,8 @@ const NotificationForm = ({ onSubmit }) => {
           type="number"
           value={thresholdValue}
           onChange={(e) => setThresholdValue(e.target.value)}
+          step="any" // Allows decimals; 
+          placeholder="Enter threshold value"
         />
       </div>
 
@@ -41,10 +47,11 @@ const NotificationForm = ({ onSubmit }) => {
         label="Notification Method"
         options={['Email', 'SMS', 'Phone Call', 'Whatsapp', 'Slack', 'Discord']}
         onSelect={setNotificationMethod}
+        selectedValue={notificationMethod} // Pass current value to dropdown 
       />
 
-      {/* Submit Button */}
-      <button onClick={handleSubmit}>Set Alert!</button>
+       {/* Submit Button */}
+       <Button text="Set Alert!" onClick={handleSubmit} />
     </div>
   );
 };
