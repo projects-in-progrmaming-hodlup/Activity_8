@@ -15,7 +15,6 @@ To run this application locally, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/projects-in-progrmaming-hodlup/Activity_8.git
-   cd Activity_8
 
 2. **Install dependencies**:
     ```bash
@@ -72,3 +71,7 @@ To run this application locally, follow these steps:
    - Props:
      - `alertData`: Data about the alert settings to be confirmed.
      - `onModify`: Function to call when the user wants to modify settings.
+    
+### LLM Assistance 
+
+In building this application, we utilized ChatGPT to assist us in structuring our figma wireframe, specifically the props and stats needed for each component. 
