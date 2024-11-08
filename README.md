@@ -1,6 +1,6 @@
 # HodlUP Front End 
 
-HodlUP is a React-based web application that allows users to set custom notifications for cryptocurrency price or percentage changes. Users can select the type of change they want to monitor, specify a threshold, and choose their preferred notification method. The app offers flexibility in notification preferences to help users stay informed without constantly monitoring markets.
+HodlUP is a React-based web application that allows users to set custom notifications for price or percentage changes across a wide range of cryptocurrencies. Users can select the type of change they want to monitor, specify a threshold, and choose their preferred notification method. The app offers flexibility in notification preferences to help users stay informed without constantly monitoring markets.
 
 ## Features
 
@@ -32,6 +32,7 @@ To run this application locally, follow these steps:
 ## How to Use
 
 1.	Set Notification:
+-  **Cryptocurrency Selection**: Choose the cryptocurrency you want to set an alert for from the dropdown. 
 -  **Notification Type**: Select either “Price” or “Percentage” change as the notification trigger.
 -  **Set Threshold**: Enter your desired threshold value (numeric input).
 -  **Notification Method**: Choose a preferred notification method from a dropdown (Email, SMS, Phone Call, Slack, Discord, or WhatsApp).
@@ -47,8 +48,11 @@ To run this application locally, follow these steps:
    - Purpose: Allows users to set their notification preferences.
    - Props:
      - `onSubmit`: Function to call when the form is submitted.
+     - `cryptocurrencies`: Array of available cryptocurrencies for selection.
      - `initialData`: Initial values to populate the form (useful for modifying settings).
+
    - State:
+     - `selectedCrypto`: Stores the name of the selected cryptocurrency. The state defaults to first cryptocurrency in the mock data (refer to mockData.js under data) and is updated with the user input (using initialData.selectedCrypto if modifying settings). 
      - `notificationType`: Tracks whether the alert is based on price or percentage. The state defaults to 'Price' and is updated with the user input (using initialData.notificationType if modifying settings).  
      - `thresholdValue`: Holds the user-defined threshold for the alert. The state defaults to an empty string ('') and is updated with the user input (using initialData.thresholdValue if modifying settings)
      - `notificationMethod`: Stores the preferred method of notification (e.g., Email, SMS). The state defaults to 'Email' and is updated with the user input (using initialData.notificationMethod if modifying settings)
